@@ -98,7 +98,7 @@ namespace DubVisionWPF
         //use margin to create an offset between the two text blocks with the value controlled by a slider, sims the 2x vision
         private void ghostOffsetSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            ghostText.Margin = new Thickness(0, 0, 0, ghostOffsetSlider.Value);
+            ghostText.Margin = new Thickness(10, 10, 10, 10 + ghostOffsetSlider.Value);
         }
 
         //opacity value of ghost from slider
@@ -126,7 +126,6 @@ namespace DubVisionWPF
             {
                 sampleText.Text = lorem;
                 ghostText.Text = lorem;
-                ghostText.Margin = new Thickness(10, 10, 10, 10); //for some reason the margin resets to 0 without this line idk ¯\(°_o)/¯
             }
         }
     }
