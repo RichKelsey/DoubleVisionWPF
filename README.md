@@ -10,4 +10,7 @@ Allows for:
 - Single line or paragraph previews
 
 ## Screenshot
-![image fo program](https://i.imgur.com/j1ZSeqd.png)
+![image of program](https://i.imgur.com/j1ZSeqd.png)
+
+![image of program](https://i.imgur.com/eTyWChv.png)
+
