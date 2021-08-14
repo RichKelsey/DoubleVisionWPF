@@ -1,0 +1,51 @@
+﻿<Window x:Class="DubVisionWPF.MainWindow"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DubVisionWPF"
+        mc:Ignorable="d"
+        Title="Double Vision Simulator" Height="1000" Width="1900" Background="Black" Foreground="White"
+        TextElement.Foreground = "White"
+        TextElement.FontSize="16"
+        >
+    <Grid Margin="0,0,-4,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="ghostText" HorizontalAlignment="Center" Text="SampleText" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,10,10,10" Visibility="Collapsed"/>
+        <TextBlock x:Name="sampleText" HorizontalAlignment="Center" Text="SampleText" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,10,10,10"/>
+        <StackPanel Grid.Column="1" Margin="5,5,5,5" Background="#FF2C2C2C">
+            <Label Content="Font Size" Foreground="White" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            <Slider x:Name="fontSizeSlider" Width="250" Minimum="9" Maximum="72" ValueChanged="fontSizeSlider_ValueChanged" Value="40.5"/>
+            <Label Content="Font Colour" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
+            <xctk:ColorCanvas Name="colourCanvas" Visibility="Visible" Foreground="White" Background="{x:Null}" BorderBrush="{x:Null}" SelectedColorChanged="colourCanvas_SelectedColorChanged" RenderTransformOrigin="0.5,0.5">
+                <xctk:ColorCanvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </xctk:ColorCanvas.RenderTransform>
+            </xctk:ColorCanvas>
+            <Label Content="Background Colour" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+            <xctk:ColorCanvas x:Name="bgColCanvas" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" SelectedColorChanged="bgColCanvas_SelectedColorChanged"/>
+            <Label Content="Ghosting Settings" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <CheckBox x:Name="ghostCheck" Content="Enabled" Background="White" BorderBrush="White" Foreground="White" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="ghostCheck_Checked" Unchecked="ghostCheck_Unchecked"/>
+            <Label Content="Ghosting Offset" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            <Slider x:Name="ghostOffsetSlider" Width="250" ValueChanged="ghostOffsetSlider_ValueChanged" Minimum="1" Maximum="30" IsEnabled="False" Foreground="{x:Null}" Background="{x:Null}" BorderBrush="{x:Null}" Opacity="0.5"/>
+            <Label Content="Ghosting Opacity" Background="{x:Null}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Slider x:Name="ghostOpacitySlider" Width="250" Maximum="1" Minimum="0.01" ValueChanged="ghostOpacitySlider_ValueChanged" LargeChange="0.1" Value="1" IsEnabled="False" Opacity="0.5"/>
+            <Label Content="Blurring" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Slider x:Name="blurSlider" Width="250" ValueChanged="blurSlider_ValueChanged" Opacity="0.5" IsEnabled="False"/>
+            <Label Content="Text Content" Background="{x:Null}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,25,0,0"/>
+            <ComboBox x:Name="textSelectDropDown" Width="120" VerticalAlignment="Center" HorizontalAlignment="Center" IsReadOnly="True" SelectionChanged="textSelectDropDown_SelectionChanged">
+                <ComboBoxItem Content="Sample Text" IsSelected="True"/>
+                <ComboBoxItem Content="Paragraph"/>
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+</Window>
